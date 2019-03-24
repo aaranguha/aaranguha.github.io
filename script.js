@@ -63,3 +63,11 @@ function newFunction(){
 
 
 }
+
+function clearScreen(){
+  var myNode = document.getElementById("main");
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+
+}
