@@ -1,13 +1,269 @@
-<!doctype.html> 
-	<html> 
-		<head> 
-			<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-			<link rel="stylesheet" href="styleog.css">
-		</head>
+<!DOCTYPE html>
+<html>
+<style>
+  #mydiv1 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    top: 500px;
+  }
 
-		<body> 
-			<h1 id = "title1">  Welcome to SchoolToolz 
-        
-      <a id = "link1" href="index.html">Start Here </a> </h1> 
-		</body>
-	</html>
+  #mydiv1header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+
+  }
+
+  #mydiv3 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    top: 500px;
+    left: 700px;
+  }
+
+  #mydiv3header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  #mydiv2 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    left: 700px;
+  }
+
+  #mydiv2header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  #mydiv4 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+  }
+
+  #mydiv4header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  #mydiv5 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+  }
+
+  #mydiv5header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  #mydiv6 {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+  }
+
+  #mydiv6header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  div {
+    resize: both;
+    overflow: auto;
+  }
+
+  .site {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .element {
+    min-height: 200px;
+    min-width: 300px;
+  }
+</style>
+
+<body>
+
+  <script src="https://www.desmos.com/api/v1.2/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6">
+  </script>
+  <script src="script.js">
+  </script>
+
+  <div id="main">
+
+  </div>
+
+  <input type="text" name="link" id="link">
+<button onclick="NewFunction(document.getElementById('link').value)">Click me</button>
+</div>
+
+
+<script>
+function NewFunction(source){
+  var count = document.getElementsByClassName("element").length + 1
+  // Now create and append to iDiv
+  main = document.getElementById("main")
+
+  var newElement = document.createElement('div');
+  var innerDiv = document.createElement('div');
+  var f = document.createElement('iframe');
+  f.src = source;
+  newElement.setAttribute("class", "element")
+  f.setAttribute("class", "site")
+  newElement.id = ("mydiv" + count)
+  newElement.style.width = "600px"
+  newElement.style.height = "400px"
+  innerDiv.id = newElement.id + "header"
+
+
+  // The variable iDiv is still good... Just append to it.
+
+  main.appendChild(newElement)
+  newElement.appendChild(innerDiv)
+  newElement.appendChild(f)
+
+  stuff = document.getElementsByClassName("element")
+  for (x=0; x<stuff.length; x++){
+    dragElement(document.getElementById(stuff[x].id))  
+}
+}
+</script>
+
+
+<script>
+//Make the DIV element draggagle:
+
+
+/*
+dragElement(document.getElementById("mydiv"));
+dragElement(document.getElementById("mydiv2"));
+dragElement(document.getElementById("mydiv3"));
+
+
+
+stuff = document.getElementsByClassName("element")
+for (x=0; x<stuff.length; x++){
+  dragElement(document.getElementById(stuff[x].id))  
+}
+
+*/
+
+stuff = document.getElementsByClassName("element")
+for (x=0; x<stuff.length; x++){
+  dragElement(document.getElementById(stuff[x].id))  
+}
+
+//dragElement(document.getElementById("lol"));
+
+
+
+
+
+</script>
+
+
+</body>
+<body2>
+    <head2>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+  </head2>
+  <h1 id = "title1"> Tools </h1>
+  <ul>
+    <h2 id = "drag1" draggable = "true" ondragstart="drag(event)"><li><a> Math</a>
+      <ul>
+        <li><a><button onclick="NewFunction('https://www.desmos.com/calculator')">  Desmos Calculator </button></a></li>
+        <li><a><button onclick="NewFunction('https://www.slader.com/')"> Homework Help </a></li>
+      </ul>
+    </li></h2>
+    <br>
+    <br>
+    <br>
+    <h2><li><a>English</a>
+     <ul>
+        <li><a><button onclick="NewFunction('https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_page_basic_format.html')">MLA Citations</a></li>
+        <li><a><button onclick="NewFunction('https://www.wikipedia.org/')"> Wikipedia</a></li>
+      </ul>
+    </li></h2>
+    <br>
+    <br>
+    <br>
+    <h2><li><a>Science</a>
+     <ul>
+        <li><a><button onclick="NewFunction('https://phet.colorado.edu/en/simulations')"> PHeT </a></li>
+        <li><a><button onclick="NewFunction('https://ptable.com')">Dynamic Periodic Table</a></li>
+      </ul>
+  
+  </ul>
+<head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button onclick="clearScreen()"> Clear </button>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementsByID(data));
+}
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+
+<script>
+  
+</body>
+</html>
+
+</body2>
+</html>
