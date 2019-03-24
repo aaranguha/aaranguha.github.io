@@ -1,0 +1,97 @@
+<HTML>
+
+<style>
+.panel{
+  width: 200px;
+  height: 200px;
+}
+
+#panel2{
+  left: 300px
+}
+#panel3{
+  left: 550px
+}
+
+.resizable{ 
+  overflow: hidden;
+  resize: both
+}
+
+.draggable{
+  position: absolute;
+  z-index: 100
+}
+.draggable-handler{
+  cursor: pointer
+}
+.dragging{
+  cursor: move;
+  z-index: 200 !important
+}
+
+iframe {
+  width: 100%;
+}
+</style>
+
+
+<div>
+  <div id="panel1" class="panel panel-primary resizable draggable">
+    <div class="panel-heading draggable-handler">Handler for dragging</div>
+    <div class="panel-body">
+      Draggable and resizable content
+      <a href="#" id="check-iframe-content-url">Check URL</a>
+    </div>
+  </div>
+  
+  <div id="panel2" class="panel panel-warning resizable draggable">
+    <div class="panel-heading draggable-handler">Handler for dragging</div>
+    <div class="panel-body">
+      Draggable and resizable content
+    </div>
+  </div>
+  
+  <div id="panel3" class="panel panel-danger resizable draggable">
+    <div class="panel-heading draggable-handler">Handler for dragging</div>
+    <div class="panel-body">
+      Draggable and resizable content
+    </div>
+  </div>
+</div>
+
+<iframe id="iframe-source" src="/about" onload="this.style.height=this.contentDocument.body.scrollHeight + 4 +'px';"></iframe>
+
+<script>
+
+  $('.draggable-handler').mousedown(function(e){
+  drag = $(this).closest('.draggable')
+  drag.addClass('dragging')
+  drag.css('left', e.clientX-$(this).width()/2)
+  drag.css('top', e.clientY-$(this).height()/2 - 10)
+  $(this).on('mousemove', function(e){    
+    drag.css('left', e.clientX-$(this).width()/2)
+    drag.css('top', e.clientY-$(this).height()/2 - 10)
+    window.getSelection().removeAllRanges()
+  })
+})
+
+$('.draggable-handler').mouseleave(stopDragging)
+$('.draggable-handler').mouseup(stopDragging)
+
+function stopDragging(){
+  drag = $(this).closest('.draggable')
+  drag.removeClass('dragging')
+  $(this).off('mousemove')
+}
+
+
+
+$(document).on('click', 'a#check-iframe-content-url', function(){
+  alert($("#iframe-source").contents().find('.primary'));
+});
+</script>
+
+</HTML>
+
+
