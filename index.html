@@ -9,13 +9,16 @@
   border: 1px solid #d3d3d3;
   top: 500px;
 }
+
 #mydiv1header {
   padding: 10px;
   cursor: move;
   z-index: 10;
   background-color: #2196F3;
   color: #fff;
+
 }
+
 #mydiv3 {
   position: absolute;
   z-index: 9;
@@ -25,6 +28,7 @@
   top: 500px;
   left: 700px;
 }
+
 #mydiv3header {
   padding: 10px;
   cursor: move;
@@ -32,6 +36,7 @@
   background-color: #2196F3;
   color: #fff;
 }
+
 #mydiv2 {
   position: absolute;
   z-index: 9;
@@ -40,6 +45,7 @@
   border: 1px solid #d3d3d3;
   left: 700px;
 }
+
 #mydiv2header {
   padding: 10px;
   cursor: move;
@@ -47,6 +53,7 @@
   background-color: #2196F3;
   color: #fff;
 }
+
 #mydiv4 {
   position: absolute;
   z-index: 9;
@@ -54,6 +61,7 @@
   text-align: center;
   border: 1px solid #d3d3d3;
 }
+
 #mydiv4header {
   padding: 10px;
   cursor: move;
@@ -61,6 +69,7 @@
   background-color: #2196F3;
   color: #fff;
 }
+
 #mydiv5 {
   position: absolute;
   z-index: 9;
@@ -68,6 +77,7 @@
   text-align: center;
   border: 1px solid #d3d3d3;
 }
+
 #mydiv5header {
   padding: 10px;
   cursor: move;
@@ -75,6 +85,7 @@
   background-color: #2196F3;
   color: #fff;
 }
+
 #mydiv6 {
   position: absolute;
   z-index: 9;
@@ -82,6 +93,7 @@
   text-align: center;
   border: 1px solid #d3d3d3;
 }
+
 #mydiv6header {
   padding: 10px;
   cursor: move;
@@ -89,10 +101,12 @@
   background-color: #2196F3;
   color: #fff;
 }
+
 div {
   resize: both;
   overflow: auto;
 }
+
 .site {
   position: relative;
   height: 100%;
@@ -122,6 +136,7 @@ function NewFunction(source){
   var count = document.getElementsByClassName("element").length + 1
   // Now create and append to iDiv
   main = document.getElementById("main")
+
   var newElement = document.createElement('div');
   var innerDiv = document.createElement('div');
   var f = document.createElement('iframe');
@@ -132,10 +147,14 @@ function NewFunction(source){
   newElement.style.width = "600px"
   newElement.style.height = "400px"
   innerDiv.id = newElement.id + "header"
+
+
   // The variable iDiv is still good... Just append to it.
+
   main.appendChild(newElement)
   newElement.appendChild(innerDiv)
   newElement.appendChild(f)
+
   stuff = document.getElementsByClassName("element")
   for (x=0; x<stuff.length; x++){
     dragElement(document.getElementById(stuff[x].id))  
@@ -146,20 +165,33 @@ function NewFunction(source){
 
 <script>
 //Make the DIV element draggagle:
+
+
 /*
 dragElement(document.getElementById("mydiv"));
 dragElement(document.getElementById("mydiv2"));
 dragElement(document.getElementById("mydiv3"));
+
+
+
 stuff = document.getElementsByClassName("element")
 for (x=0; x<stuff.length; x++){
   dragElement(document.getElementById(stuff[x].id))  
 }
+
 */
+
 stuff = document.getElementsByClassName("element")
 for (x=0; x<stuff.length; x++){
   dragElement(document.getElementById(stuff[x].id))  
 }
+
 //dragElement(document.getElementById("lol"));
+
+
+
+
+
 </script>
 
 
@@ -213,9 +245,11 @@ for (x=0; x<stuff.length; x++){
 function allowDrop(ev) {
   ev.preventDefault();
 }
+
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
+
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
@@ -232,5 +266,6 @@ function drop(ev) {
   
 </body>
 </html>
+
 </body2>
 </html>
